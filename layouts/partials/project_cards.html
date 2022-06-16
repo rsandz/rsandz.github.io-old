@@ -1,0 +1,19 @@
+<div class="card-container mb-8 flex flex-col md:flex-row gap-8">
+  {{range .}}
+  <div class="bg-tertiary rounded-lg md:w-6/12 flex flex-col">
+    <div class="bg-secondary h-6 rounded-t-lg"></div>
+    <div class="p-3 flex flex-col grow">
+      <h3 class="text-xl font-bold underline">{{.Title}}</h3>
+      <div class="flex-grow">{{.Content}}</div>
+      {{if .Params.link}}
+      <a
+        href="{{.Params.link}}"
+        class="mt-2 text-primary font-bold hover:text-white hover:underline"
+      >
+        More Info
+      </a>
+      {{end}}
+    </div>
+  </div>
+  {{end}}
+</div>
