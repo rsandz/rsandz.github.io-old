@@ -1,0 +1,7 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: "Ryan Sandoval - Portfolio"
+theme: "papermod"
+params:
+  defaultTheme: dark
+  disableThemeToggle: true

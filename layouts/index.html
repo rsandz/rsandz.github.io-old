@@ -1,0 +1,54 @@
+{{define "main"}}
+<style>
+  :root {
+    --main-width: 1024px;
+  }
+  .h-banner {
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+  }
+</style>
+
+<section class="h-banner flex flex-wrap items-center justify-around">
+  <div class="sm:h-banner">
+    <h1 class="text-5xl font-bold">Hi, I'm Ryan Sandoval</h1>
+    <h2 class="mt-1 text-3xl">
+      and I am a <span id="stuff-i-am" class="text-secondary"></span>
+    </h2>
+    <div class="socials">{{partial "social_buttons.html" .}}</div>
+  </div>
+  <svg class="h-banner w-5/12 hidden lg:block">
+    <circle cx="50%" cy="60%" r="8em" fill="var(--color-secondary)" />
+    <circle cx="35%" cy="40%" r="6em" fill="var(--color-primary)" />
+  </svg>
+</section>
+
+<section class="projects">
+  <h1 class="mb-8 text-4xl font-bold underline decoration-primary decoration-4">
+    Projects
+  </h1>
+  {{partial "project_cards.html" (.Site.GetPage "projects").Pages }}
+</section>
+
+<section class="socials">
+  <h1 class="mb-8 text-4xl font-bold underline decoration-primary decoration-4">
+    Contact
+  </h1>
+  <p>The best way to contact me is by connecting with me on LinkedIn.</p>
+  <div class="flex justify-center">{{partial "social_buttons.html" .}}</div>
+</section>
+
+<script>
+  const strings = [
+    "software developer",
+    "engineering graduate",
+    "technology enthusiast",
+  ];
+  var typed = new Typed("#stuff-i-am", {
+    strings: strings.map((str) => str + "."),
+    typeSpeed: 50,
+    backSpeed: 50,
+    smartBackspace: false,
+    loop: true,
+  });
+</script>
+{{end}}
